@@ -1,6 +1,6 @@
 <template>
   <div class="state">
-    <card-info class="status">
+    <card-info class="status" :hideFooter="true">
       <template v-slot:header>
         <h3>Статус</h3>
         <button>Поехали!</button>
@@ -13,7 +13,7 @@
         </ul>
       </template>
     </card-info>
-    <card-info class="weather">
+    <card-info class="weather" :hideFooter="true">
       <template v-slot:header><h2>Погодные условия</h2></template>
       <template v-slot:content>
         <table>
@@ -36,7 +36,7 @@
         </table>
       </template>
     </card-info>
-    <card-info class="team">
+    <card-info class="team" :hideFooter="true">
         <template v-slot:header><h2>Экипаж</h2></template>
         <template v-slot:content>
           <table>
@@ -92,10 +92,6 @@ h3, li {
 
 .status, .weather, .team{
   width: 560px;
-}
-
-.status ul {
-  padding: 20px 0px;
 }
 
 .status ul li {
