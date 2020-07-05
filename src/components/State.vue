@@ -36,6 +36,29 @@
        </table>
      </div>
     </div>
+    <div class="info-card weather">
+     <div class="card-title"><h1>Экипаж</h1></div>
+     <div class="card-content">
+       <table>
+         <tr>
+           <th style="color: #FF7D84;">Капитан</th>
+           <td>Константин Константинопольский</td>
+         </tr>
+         <tr>
+           <th style="color: #E69F54;">Борт инженер</th>
+           <td>Иван Иванов</td>
+         </tr>
+         <tr>
+           <th style="color: #64D03F;">Врач</th>
+           <td>Петр Петров</td>
+         </tr>
+         <tr>
+           <th style="color: #5A95F2;">Космодесантник</th>
+           <td>Анастасия Преображенская</td>
+         </tr>
+       </table>
+     </div>
+    </div>
   </div>
 </template>
 
