@@ -66,6 +66,9 @@
 
 <style scoped>
 .state {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   padding: 48px 43px;
 }
 
@@ -170,6 +173,7 @@ th {
 
 img {
   position: absolute;
+  z-index: -1;
 }
 
 .astronomy {
@@ -178,7 +182,7 @@ img {
 }
 
 .rocket {
-  left: 769px;
+  right: 70px;
   bottom: 0;
 }
 </style>

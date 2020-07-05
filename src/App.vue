@@ -49,4 +49,10 @@ h2, h3 {
 .router-link-exact-active {
   opacity: 1!important;
 }
+
+@media (max-height: 1095px) {
+  #app {
+    height: 900px;
+  }
+}
 </style>
