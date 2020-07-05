@@ -59,6 +59,8 @@
        </table>
      </div>
     </div>
+    <img class="astronomy" src="../assets/images/astronomy.svg" />
+    <img class="rocket" src="../assets/images/rocket.svg" />
   </div>
 </template>
 
@@ -164,5 +166,19 @@ th {
   text-align: left;
   color: #0A5499;
   line-height: 21px;
+}
+
+img {
+  position: absolute;
+}
+
+.astronomy {
+  top: 0;
+  right: 0;
+}
+
+.rocket {
+  left: 769px;
+  bottom: 0;
 }
 </style>
