@@ -1,68 +1,77 @@
 <template>
   <div class="state">
-    <div class="info-card status">
-      <div class="card-title">
+    <card-info class="status">
+      <template v-slot:header>
         <h3>Статус</h3>
         <button>Поехали!</button>
-      </div>
-      <div class="card-content">
+      </template>
+      <template v-slot:content>
         <ul>
           <li>Ракета выбрана</li>
           <li>Команда собрана</li>
           <li class="status-ok">Погода - ок</li>
         </ul>
-      </div>
-    </div>
-    <div class="info-card weather">
-     <div class="card-title"><h2>Погодные условия</h2></div>
-     <div class="card-content">
-       <table>
-         <tr>
-           <th>Локация</th>
-           <td>Космодром Северный</td>
-         </tr>
-         <tr>
-           <th>Температура</th>
-           <td>+15</td>
-         </tr>
-         <tr>
-           <th>Влажность</th>
-           <td>86%</td>
-         </tr>
-         <tr>
-           <th>Ветер</th>
-           <td>5 м/c, СЗ</td>
-         </tr>
-       </table>
-     </div>
-    </div>
-    <div class="info-card weather">
-     <div class="card-title"><h2>Экипаж</h2></div>
-     <div class="card-content">
-       <table>
-         <tr>
-           <th style="color: #FF7D84;">Капитан</th>
-           <td>Константин Константинопольский</td>
-         </tr>
-         <tr>
-           <th style="color: #E69F54;">Борт инженер</th>
-           <td>Иван Иванов</td>
-         </tr>
-         <tr>
-           <th style="color: #64D03F;">Врач</th>
-           <td>Петр Петров</td>
-         </tr>
-         <tr>
-           <th style="color: #5A95F2;">Космодесантник</th>
-           <td>Анастасия Преображенская</td>
-         </tr>
-       </table>
-     </div>
-    </div>
+      </template>
+    </card-info>
+    <card-info class="weather">
+      <template v-slot:header><h2>Погодные условия</h2></template>
+      <template v-slot:content>
+        <table>
+          <tr>
+            <th>Локация</th>
+            <td>Космодром Северный</td>
+          </tr>
+          <tr>
+            <th>Температура</th>
+            <td>+15</td>
+          </tr>
+          <tr>
+            <th>Влажность</th>
+            <td>86%</td>
+          </tr>
+          <tr>
+            <th>Ветер</th>
+            <td>5 м/c, СЗ</td>
+          </tr>
+        </table>
+      </template>
+    </card-info>
+    <card-info class="team">
+        <template v-slot:header><h2>Экипаж</h2></template>
+        <template v-slot:content>
+          <table>
+            <tr>
+              <th style="color: #FF7D84;">Капитан</th>
+              <td>Константин Константинопольский</td>
+            </tr>
+            <tr>
+              <th style="color: #E69F54;">Борт инженер</th>
+              <td>Иван Иванов</td>
+            </tr>
+            <tr>
+              <th style="color: #64D03F;">Врач</th>
+              <td>Петр Петров</td>
+            </tr>
+            <tr>
+              <th style="color: #5A95F2;">Космодесантник</th>
+              <td>Анастасия Преображенская</td>
+            </tr>
+          </table>
+        </template>
+      </card-info>
     <img class="astronomy" src="../assets/images/astronomy.svg" />
     <img class="rocket" src="../assets/images/rocket.svg" />
   </div>
 </template>
+<script>
+import CardInfo from './Card-Info.vue'
+export default {
+  name: 'ship',
+  components: {
+    CardInfo
+  }
+}
+</script>
 
 <style scoped>
 .state {
@@ -81,22 +90,7 @@ h3, li {
   font-weight: 500;
 }
 
-.card-title {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 21px 24px;
-  border-bottom: 1px solid #D8DCE3;
-}
-
-.info-card {
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-  background: #FFFFFF;
-  border-radius: 10px;
-  margin-bottom: 46px;
-}
-
-.status, .weather{
+.status, .weather, .team{
   width: 560px;
 }
 
@@ -125,10 +119,6 @@ button {
   line-height: 19px;
 }
 
-.card-content {
-  padding: 0px 24px;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -152,24 +142,6 @@ li.status-ok::before  {
 table {
   width: 100%;
   border-collapse: collapse; 
-}
-
-tr {
-  border-bottom: 1px solid #D1D9E5;
-}
-
-table tr:last-child {
-  border: none;
-}
-
-td {
-  padding: 8px 0px;
-}
-
-th {
-  text-align: left;
-  color: #0A5499;
-  line-height: 21px;
 }
 
 img {

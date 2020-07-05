@@ -37,17 +37,38 @@ body {
 
 h1 {
   font-size: 48px;
+  font-weight: normal;
   line-height: 56px;
   margin: 0;
+  margin-bottom: 21px;
 }
 
 h2, h3 {
   font-size: 18px;
   line-height: 21px;
+  margin: 0;
 }
 
 .router-link-exact-active {
   opacity: 1!important;
+}
+
+tr {
+  border-bottom: 1px solid #D1D9E5;
+}
+
+table tr:last-child {
+  border: none;
+}
+
+td {
+  padding: 8px;
+}
+
+th {
+  text-align: left;
+  color: #0A5499;
+  line-height: 21px;
 }
 
 @media (max-height: 1095px) {
