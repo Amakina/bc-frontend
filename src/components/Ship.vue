@@ -24,46 +24,65 @@
        </table>
       </template>
     </card-info>
-    <card-info :hideHeader="true" :hasBorder="true" class="select-ship">
-      <template v-slot:content>
-        <img src="../assets/images/rocket_2.svg" width="89" height="89" style="margin-right: 25px;">
-        <table>
-         <tr>
-           <th>Имя</th>
-           <td>Сокол-345</td>
-         </tr>
-         <tr>
-           <th>Скорость</th>
-           <td>8 км/c</td>
-         </tr>
-         <tr>
-           <th>Экипаж</th>
-           <td>2</td>
-         </tr>
-       </table>
-      </template>
-      <template v-slot:footer>
-        <label>
-          Выбрать
-          <input type="radio" name="ship"/>
-          <span class="custom-check" />
-        </label>
-      </template>
-    </card-info>
+    <div class="ship-cards">
+      <card-info 
+        v-for="(ship, index) in ships" :key="index"
+        :hideHeader="true" 
+        :hasBorder="true" 
+        class="select-ship">
+        <template v-slot:content>
+          <img :src="require(`../assets/images/${ship.Image}`)" width="89" height="89" style="margin-right: 25px;">
+          <table>
+          <tr>
+            <th>Имя</th>
+            <td>{{ship.Name}}</td>
+          </tr>
+          <tr>
+            <th>Скорость</th>
+            <td>{{ship.Speed}}</td>
+          </tr>
+          <tr>
+            <th>Экипаж</th>
+            <td>{{ship.Team}}</td>
+          </tr>
+        </table>
+        </template>
+        <template v-slot:footer>
+          <label>
+            Выбрать
+            <input type="radio" name="ship"/>
+            <span class="custom-check" />
+          </label>
+        </template>
+      </card-info>
+    </div>
   </div>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'
+import ships from '../assets/ships.json'
+
 export default {
   name: 'ship',
   components: {
     CardInfo
+  },
+  data() {
+    return {
+      ships,
+    }
   }
 }
 </script>
 <style scoped>
 .ship {
   padding: 53px 63px;
+  width: calc(100% - 244px);
+}
+
+.ship-cards {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .selected-ship-card {
@@ -85,6 +104,7 @@ button {
 
 .select-ship {
   width: 353px;
+  margin-right: 45px;
 }
 
 table {

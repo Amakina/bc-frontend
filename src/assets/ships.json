@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "Урског-123",
+        "Speed": "6 км/c",
+        "Team": "4",
+        "Image": "alien.svg"
+    },
+    {
+        "Name": "Урског-123",
+        "Speed": "6 км/c",
+        "Team": "3",
+        "Image": "rocket_1.svg"
+    },
+    {
+        "Name": "Сокол-345",
+        "Speed": "8 км/с",
+        "Team": "2",
+        "Image": "rocket_2.svg"
+    }
+]
