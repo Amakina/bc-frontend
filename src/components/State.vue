@@ -2,7 +2,7 @@
   <div class="state">
     <div class="info-card status">
       <div class="card-title">
-        <h2>Статус</h2>
+        <h3>Статус</h3>
         <button>Поехали!</button>
       </div>
       <div class="card-content">
@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="info-card weather">
-     <div class="card-title"><h1>Погодные условия</h1></div>
+     <div class="card-title"><h2>Погодные условия</h2></div>
      <div class="card-content">
        <table>
          <tr>
@@ -37,7 +37,7 @@
      </div>
     </div>
     <div class="info-card weather">
-     <div class="card-title"><h1>Экипаж</h1></div>
+     <div class="card-title"><h2>Экипаж</h2></div>
      <div class="card-content">
        <table>
          <tr>
@@ -67,11 +67,11 @@
   padding: 48px 43px;
 }
 
-h1, h2 {
+h2, h3 {
   margin: 0;
 }
 
-h2, li {
+h3, li {
   font-weight: 500;
 }
 

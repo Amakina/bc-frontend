@@ -42,6 +42,11 @@ ul li {
 ul li a {
   opacity: .75;
 }
+
+ul li a:hover {
+  opacity: 1;
+}
+
 ul li:first-child {
   padding-bottom: 89px;
 }

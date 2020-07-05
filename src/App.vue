@@ -35,7 +35,13 @@ body {
   background-size: cover;
 }
 
-h1, h2 {
+h1 {
+  font-size: 48px;
+  line-height: 56px;
+  margin: 0;
+}
+
+h2, h3 {
   font-size: 18px;
   line-height: 21px;
 }
