@@ -103,6 +103,7 @@ h3, li {
 }
 
 button {
+  cursor: pointer;
   width: 150px;
   height: 30px;
   color: #999999;
@@ -110,6 +111,7 @@ button {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   border: none;
+  outline:none;
   font-weight: bold;
   font-size: 16px;
   line-height: 19px;
