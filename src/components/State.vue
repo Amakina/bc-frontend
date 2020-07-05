@@ -68,8 +68,9 @@
 .state {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: calc(100% - 118px);
   padding: 48px 43px;
+  box-sizing: border-box;
 }
 
 h2, h3 {
