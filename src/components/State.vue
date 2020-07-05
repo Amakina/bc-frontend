@@ -1,0 +1,141 @@
+<template>
+  <div class="state">
+    <div class="info-card status">
+      <div class="card-title">
+        <h2>Статус</h2>
+        <button>Поехали!</button>
+      </div>
+      <div class="card-content">
+        <ul>
+          <li>Ракета выбрана</li>
+          <li>Команда собрана</li>
+          <li class="status-ok">Погода - ок</li>
+        </ul>
+      </div>
+    </div>
+    <div class="info-card weather">
+     <div class="card-title"><h1>Погодные условия</h1></div>
+     <div class="card-content">
+       <table>
+         <tr>
+           <th>Локация</th>
+           <td>Космодром Северный</td>
+         </tr>
+         <tr>
+           <th>Температура</th>
+           <td>+15</td>
+         </tr>
+         <tr>
+           <th>Влажность</th>
+           <td>86%</td>
+         </tr>
+         <tr>
+           <th>Ветер</th>
+           <td>5 м/c, СЗ</td>
+         </tr>
+       </table>
+     </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.state {
+  padding: 48px 43px;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h2, li {
+  font-weight: 500;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 21px 24px;
+  border-bottom: 1px solid #D8DCE3;
+}
+
+.info-card {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-bottom: 46px;
+}
+
+.status, .weather{
+  width: 560px;
+}
+
+.status ul {
+  padding: 20px 0px;
+}
+
+.weather .card-content {
+  padding: 23px 24px 43px 24px;
+}
+
+button {
+  width: 150px;
+  height: 30px;
+  color: #999999;
+  background: #E4E4E4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.card-content {
+  padding: 0px 24px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li::before {
+  content: '';
+  display: inline-block;
+  width: .75em;
+  height: .75em;
+  margin-right: .5em;
+  background: #FF7D84;
+  border-radius: 50%;
+}
+
+li.status-ok::before  {
+  background: #73E24D;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+tr {
+  border-bottom: 1px solid #D1D9E5;
+}
+
+table tr:last-child {
+  border: none;
+}
+
+td {
+  padding: 8px 0px;
+}
+
+th {
+  text-align: left;
+  color: #0A5499;
+  line-height: 21px;
+}
+</style>
