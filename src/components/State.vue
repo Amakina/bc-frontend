@@ -75,8 +75,12 @@ h2, li {
   padding: 20px 0px;
 }
 
+.status ul li {
+  padding: 4px 0px;
+}
+
 .weather .card-content {
-  padding: 23px 24px 43px 24px;
+  padding: 24px;
 }
 
 button {
