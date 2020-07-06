@@ -31,7 +31,7 @@ body, html {
 }
 
 body {
-  background: url('./assets/images/background.jpg') no-repeat center center fixed; 
+  background: url('./assets/images/background/background.jpg') no-repeat center center fixed; 
   background-size: cover;
 }
 

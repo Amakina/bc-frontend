@@ -2,16 +2,16 @@
   <div class="menu">
     <ul>
       <li>
-        <router-link to="/"><img src="../assets/images/earth.png"></router-link>
+        <router-link to="/"><img src="../assets/images/menu/earth.png"></router-link>
       </li>
       <li>
-        <router-link to="/ship"><img src="../assets/images/rocket.png"></router-link>
+        <router-link to="/ship"><img src="../assets/images/menu/rocket.png"></router-link>
       </li>
       <li>
-        <router-link to="/team"><img src="../assets/images/aqualung.png"></router-link>
+        <router-link to="/team"><img src="../assets/images/menu/aqualung.png"></router-link>
       </li>
       <li>
-        <router-link to="/weather"><img src="../assets/images/thermometer.png"></router-link>
+        <router-link to="/weather"><img src="../assets/images/menu/thermometer.png"></router-link>
       </li>
     </ul>
   </div>

@@ -1,15 +1,33 @@
 <template>
   <div class="home">
     <Menu />
-    <router-view />
+    <router-view 
+      :ship="ship"
+      @shipSelect="onShipSelect"/>
   </div>
 </template>
 <script>
 import Menu from './Menu.vue'
+import Ships from '../assets/ships.json'
+import Rocket from '../Rocket'
+
 export default {
   name: 'home',
   components: {
     Menu
+  },
+  data() {
+    return {
+      ship: null,
+    }
+  },
+  created() {
+    this.ship = new Rocket(Ships[0].Name, Ships[0].Speed, Ships[0].Team, Ships[0].Image)
+  },
+  methods: {
+    onShipSelect(ship) {
+      this.ship = ship
+    }
   }
 }
 </script>

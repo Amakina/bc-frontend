@@ -59,8 +59,8 @@
           </table>
         </template>
       </card-info>
-    <img class="astronomy" src="../assets/images/astronomy.svg" />
-    <img class="rocket" src="../assets/images/rocket.svg" />
+    <img class="astronomy" src="../assets/images/background/astronomy.svg" />
+    <img class="rocket" src="../assets/images/background/rocket.svg" />
   </div>
 </template>
 <script>

@@ -7,7 +7,7 @@
         <button @click="onBuildClick">Собрать ракету</button>
       </template>
       <template v-slot:content>
-        <img :src="require(`../assets/images/${selectedShip.Image}`)" width="89" height="89" style="margin-right: 25px;">
+        <img :src="require(`../assets/images/rockets/${selectedShip.Image}`)" width="89" height="89" style="margin-right: 25px;">
         <table>
          <tr>
            <th>Имя</th>
@@ -31,7 +31,7 @@
         :hasBorder="true" 
         class="select-ship">
         <template v-slot:content>
-          <img :src="require(`../assets/images/${ship.Image}`)" width="89" height="89" style="margin-right: 25px;">
+          <img :src="require(`../assets/images/rockets/${ship.Image}`)" width="89" height="89" style="margin-right: 25px;">
           <table>
           <tr>
             <th>Имя</th>
@@ -85,7 +85,8 @@ export default {
         this.selectedShip.Team,
         this.selectedShip.Image
       )
-      console.log(rocket)
+      this.$emit('shipSelect', rocket)
+      //console.log(rocket)
     }
   }
 }
