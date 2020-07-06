@@ -4,8 +4,10 @@
     <router-view 
       :ship="ship"
       :team="team"
+      :weather="weather"
       @shipSelect="onShipSelect"
-      @teamSelect="onTeamSelect"/>
+      @teamSelect="onTeamSelect"
+      @weatherChecked="onWeatherChecked"/>
   </div>
 </template>
 <script>
@@ -27,6 +29,7 @@ export default {
         doctors: [],
         paratroopers: []
       },
+      weather: false,
     }
   },
   created() {
@@ -38,6 +41,9 @@ export default {
     },
     onTeamSelect(team) {
       this.team = team
+    },
+    onWeatherChecked() {
+      this.weather = true
     }
   }
 }
