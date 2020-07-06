@@ -59,7 +59,7 @@ export default {
       this.weather.humidity = `${json.main.humidity}%`
       this.weather.wind = `${json.wind.speed} м/c ${this.getWindDirection(json.wind.deg)}`
 
-      this.$emit('weatherChecked')
+      this.$emit('weatherChecked', this.weather)
       
     },
     getWindDirection(deg) {

@@ -29,7 +29,7 @@ export default {
         doctors: [],
         paratroopers: []
       },
-      weather: false,
+      weather: null,
     }
   },
   created() {
@@ -42,8 +42,9 @@ export default {
     onTeamSelect(team) {
       this.team = team
     },
-    onWeatherChecked() {
-      this.weather = true
+    onWeatherChecked(weather) {
+      this.weather = weather
+      
     }
   }
 }
