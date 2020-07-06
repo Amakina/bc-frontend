@@ -7,19 +7,19 @@
         <button @click="onBuildClick">Собрать ракету</button>
       </template>
       <template v-slot:content>
-        <img :src="require(`../assets/images/rockets/${selectedShip.Image}`)" width="89" height="89" style="margin-right: 25px;">
+        <img :src="require(`../assets/images/rockets/${selectedShip.icon}`)" width="89" height="89" style="margin-right: 25px;">
         <table>
          <tr>
            <th>Имя</th>
-           <td>{{selectedShip.Name}}</td>
+           <td>{{selectedShip.name}}</td>
          </tr>
          <tr>
            <th>Скорость</th>
-           <td>{{selectedShip.Speed}}</td>
+           <td>{{selectedShip.speed}}</td>
          </tr>
          <tr>
            <th>Экипаж</th>
-           <td>{{selectedShip.Team}}</td>
+           <td>{{selectedShip.teamNumber}}</td>
          </tr>
        </table>
       </template>
@@ -31,26 +31,26 @@
         :hasBorder="true" 
         class="select-ship">
         <template v-slot:content>
-          <img :src="require(`../assets/images/rockets/${ship.Image}`)" width="89" height="89" style="margin-right: 25px;">
+          <img :src="require(`../assets/images/rockets/${ship.icon}`)" width="89" height="89" style="margin-right: 25px;">
           <table>
           <tr>
             <th>Имя</th>
-            <td>{{ship.Name}}</td>
+            <td>{{ship.name}}</td>
           </tr>
           <tr>
             <th>Скорость</th>
-            <td>{{ship.Speed}}</td>
+            <td>{{ship.speed}}</td>
           </tr>
           <tr>
             <th>Экипаж</th>
-            <td>{{ship.Team}}</td>
+            <td>{{ship.teamNumber}}</td>
           </tr>
         </table>
         </template>
         <template v-slot:footer>
           <label>
             Выбрать
-            <input type="radio" name="ship" :checked="!index" @input="onShipSelect(index)"/>
+            <input type="radio" name="ship" :checked="selectedShip.icon === ship.icon" @input="onShipSelect(index)"/>
             <span class="custom-check" />
           </label>
         </template>
@@ -68,11 +68,17 @@ export default {
   components: {
     CardInfo
   },
+  props: {
+    ship: Object,
+  },
   data() {
     return {
       ships,
       selectedShip: ships[0],
     }
+  },
+  mounted() {
+      this.selectedShip = this.ship || ships[0]
   },
   methods: {
     onShipSelect(index) {
@@ -80,14 +86,13 @@ export default {
     },
     onBuildClick() {
       const rocket = new Rocket(
-        this.selectedShip.Name, 
-        this.selectedShip.Speed, 
-        this.selectedShip.Team,
-        this.selectedShip.Image
+        this.selectedShip.name, 
+        this.selectedShip.speed, 
+        this.selectedShip.teamNumber,
+        this.selectedShip.icon
       )
       this.$emit('shipSelect', rocket)
-      //console.log(rocket)
-    }
+    },
   }
 }
 </script>

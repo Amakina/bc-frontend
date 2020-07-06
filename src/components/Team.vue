@@ -70,6 +70,7 @@ export default {
   },
   props: {
     ship: Object,
+    team: Object,
   },
   data() {
     return {
@@ -106,6 +107,9 @@ export default {
         paratroopers: []
       }
     }
+  },
+  mounted() {
+    this.selectedTeam = this.team || this.selectedTeam
   },
   created() {
     Team.forEach((member) => {

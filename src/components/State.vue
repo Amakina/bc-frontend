@@ -3,13 +3,13 @@
     <card-info class="status" :hideFooter="true">
       <template v-slot:header>
         <h3>Статус</h3>
-        <button>Поехали!</button>
+        <button :class="{ 'button-success': ship && team && weather }" @click="flyRocket">Поехали!</button>
       </template>
       <template v-slot:content>
         <ul>
-          <li>Ракета выбрана</li>
-          <li>Команда собрана</li>
-          <li class="status-ok">Погода - ок</li>
+          <li :class="{ 'status-ok': ship }">Ракета выбрана</li>
+          <li :class="{ 'status-ok': team }">Команда собрана</li>
+          <li :class="{ 'status-ok': weather }">Погода - ок</li>
         </ul>
       </template>
     </card-info>
@@ -19,19 +19,19 @@
         <table>
           <tr>
             <th>Локация</th>
-            <td>Космодром Северный</td>
+            <td v-if="weather">{{weather.location}}</td>
           </tr>
           <tr>
             <th>Температура</th>
-            <td>+15</td>
+            <td v-if="weather">{{weather.temperature}}</td>
           </tr>
           <tr>
             <th>Влажность</th>
-            <td>86%</td>
+            <td v-if="weather">{{weather.humidity}}</td>
           </tr>
           <tr>
             <th>Ветер</th>
-            <td>5 м/c, СЗ</td>
+            <td v-if="weather">{{weather.wind}}</td>
           </tr>
         </table>
       </template>
@@ -42,25 +42,25 @@
           <table>
             <tr>
               <th style="color: #FF7D84;">Капитан</th>
-              <td>
+              <td v-if="team">
                 <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
               </td>
             </tr>
             <tr>
               <th style="color: #E69F54;">Борт инженер</th>
-              <td>
+              <td v-if="team">
                 <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
               </td>
             </tr>
             <tr>
               <th style="color: #64D03F;">Врач</th>
-              <td>
+              <td v-if="team">
                 <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
               </td>
             </tr>
             <tr>
               <th style="color: #5A95F2;">Космодесантник</th>
-              <td>
+              <td v-if="team">
                 <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
               </td>
             </tr>
@@ -68,11 +68,12 @@
         </template>
       </card-info>
     <img class="astronomy" src="../assets/images/background/astronomy.svg" />
-    <img class="rocket" src="../assets/images/background/rocket.svg" />
+    <img v-if="ship" :class="{ 'rocket': true, 'fly-rocket': fly }" :src="require(`../assets/images/rockets/${ship.icon}`)" width="328" height="328"/>
   </div>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'
+
 export default {
   name: 'ship',
   components: {
@@ -81,6 +82,17 @@ export default {
   props: {
     ship: Object,
     team: Object,
+    weather: Object,
+  }, 
+  data() {
+    return {
+      fly: false,
+    }
+  },
+  methods: {
+    flyRocket() {
+      if (this.ship && this.team && this.weather) this.fly = true
+    }
   }
 }
 </script>
@@ -165,7 +177,18 @@ img {
 }
 
 .rocket {
-  right: 70px;
-  bottom: 0;
+  right: 150px;
+  bottom: 80px;
+  transform: rotate(-45deg);
+  transition: bottom 4s ease-in-out;
+}
+
+.button-success {
+  background: #73E24D;
+  color: #FFFFFF;
+}
+
+.fly-rocket {
+  bottom: 2000px;
 }
 </style>

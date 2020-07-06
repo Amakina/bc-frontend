@@ -23,27 +23,23 @@ export default {
   data() {
     return {
       ship: null,
-      team: {
-        captains: [],
-        engineers: [],
-        doctors: [],
-        paratroopers: []
-      },
+      team: null,
       weather: null,
     }
   },
   created() {
-    this.ship = new Rocket(Ships[0].Name, Ships[0].Speed, Ships[0].Team, Ships[0].Image)
+    this.ship = new Rocket(Ships[0].name, Ships[0].speed, Ships[0].teamNumber, Ships[0].icon)
   },
   methods: {
     onShipSelect(ship) {
-      this.ship = ship
+      this.ship = { ...ship }
+      this.team = null
     },
     onTeamSelect(team) {
-      this.team = team
+      this.team = { ...team }
     },
     onWeatherChecked(weather) {
-      this.weather = weather
+      this.weather = { ...weather }
       
     }
   }
