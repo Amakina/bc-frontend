@@ -3,7 +3,9 @@
     <Menu />
     <router-view 
       :ship="ship"
-      @shipSelect="onShipSelect"/>
+      :team="team"
+      @shipSelect="onShipSelect"
+      @teamSelect="onTeamSelect"/>
   </div>
 </template>
 <script>
@@ -19,6 +21,12 @@ export default {
   data() {
     return {
       ship: null,
+      team: {
+        captains: [],
+        engineers: [],
+        doctors: [],
+        paratroopers: []
+      },
     }
   },
   created() {
@@ -27,6 +35,9 @@ export default {
   methods: {
     onShipSelect(ship) {
       this.ship = ship
+    },
+    onTeamSelect(team) {
+      this.team = team
     }
   }
 }

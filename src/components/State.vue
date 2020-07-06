@@ -42,19 +42,27 @@
           <table>
             <tr>
               <th style="color: #FF7D84;">Капитан</th>
-              <td>Константин Константинопольский</td>
+              <td>
+                <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
+              </td>
             </tr>
             <tr>
               <th style="color: #E69F54;">Борт инженер</th>
-              <td>Иван Иванов</td>
+              <td>
+                <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
+              </td>
             </tr>
             <tr>
               <th style="color: #64D03F;">Врач</th>
-              <td>Петр Петров</td>
+              <td>
+                <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
+              </td>
             </tr>
             <tr>
               <th style="color: #5A95F2;">Космодесантник</th>
-              <td>Анастасия Преображенская</td>
+              <td>
+                <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
+              </td>
             </tr>
           </table>
         </template>
@@ -69,6 +77,10 @@ export default {
   name: 'ship',
   components: {
     CardInfo
+  },
+  props: {
+    ship: Object,
+    team: Object,
   }
 }
 </script>

@@ -5,6 +5,7 @@
       <card-info :hideFooter="true">
         <template v-slot:header>
           <h2>Команда</h2>
+          <button @click="onReadyClick">Готово</button>
         </template>
         <template v-slot:content>
           <table>
@@ -44,15 +45,15 @@
       <card-info v-for="option in teamOptions" :key="option.role" :hideFooter="true">
         <template v-slot:header><h2 :style="`color:${option.color};`">{{option.role}}</h2></template>
         <template v-slot:content>
-          <table>
-            <tr v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
-              <td><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></td>
-              <td>{{member.Name}}</td>
-              <td>
+          <div class="entries-container">
+            <div class="entries" v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
+              <div style="width: 40px; height: 40px;"><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></div>
+              <div style="flex: 1;">{{member.Name}}</div>
+              <div>
                 <input type="checkbox" v-model="selectedTeam[option.container]" :value="member">
-              </td>
-            </tr>
-          </table>
+              </div>
+            </div>
+          </div>
         </template>
       </card-info>
     </div>
@@ -115,6 +116,16 @@ export default {
       })
     })
   },
+  methods: {
+    onReadyClick() {
+      if (
+        this.selectedTeam.captains.length + this.selectedTeam.engineers.length +
+        this.selectedTeam.doctors.length + this.selectedTeam.paratroopers.length 
+        !== +this.ship.teamNumber
+      ) return
+      this.$emit('teamSelect', this.selectedTeam)
+    }
+  }
 }
 </script>
 <style scoped>
@@ -141,5 +152,36 @@ td {
 th {
   line-height: 26px;
   padding-right: 28px;
+}
+
+button {
+  cursor: pointer;
+  width: 150px;
+  height: 30px;
+  color: #FFFFFF;
+  background: #73E24D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: none;
+  outline:none;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.entries-container {
+  width: 100%;
+}
+
+.entries {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #D1D9E5;
+  margin-bottom: 12px;
+}
+
+.card-content table {
+  margin: -20px 0px;
 }
 </style>

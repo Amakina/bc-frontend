@@ -53,7 +53,7 @@ h2, h3 {
   opacity: 1!important;
 }
 
-tr {
+table>tr {
   border-bottom: 1px solid #D1D9E5;
 }
 
@@ -68,7 +68,7 @@ td {
 th {
   text-align: left;
   color: #0A5499;
-  line-height: 21px;
+  line-height: 37px;
 }
 
 @media (max-height: 1095px) {
