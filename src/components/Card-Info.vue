@@ -34,14 +34,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 21px 24px;
+  padding: 15px 24px;
   border-bottom: 1px solid #D8DCE3;
 }
 
 .card-content {
   display: flex;
   align-items: center;
-  padding: 24px;
+  padding: 9px 28px 28px 28px;
 }
 
 .card-footer {

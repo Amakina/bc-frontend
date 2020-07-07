@@ -2,7 +2,7 @@
   <div class="team">
     <h1>Сбор команды</h1>
     <div class="current-selection">
-      <card-info :hideFooter="true">
+      <card-info :hideFooter="true" class="selected-team">
         <template v-slot:header>
           <h2>Команда</h2>
           <button @click="onReadyClick">Готово</button>
@@ -47,7 +47,7 @@
         <template v-slot:content>
           <div class="entries-container">
             <div class="entries" v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
-              <div style="width: 40px; height: 40px;"><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></div>
+              <div class="icon-container"><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></div>
               <div style="flex: 1;">{{member.Name}}</div>
               <div>
                 <input type="checkbox" v-model="selectedTeam[option.container]" :value="member">
@@ -149,10 +149,6 @@ export default {
   border-collapse: collapse; 
 }
 
-td {
-  padding: 0;
-}
-
 th {
   line-height: 26px;
   padding-right: 28px;
@@ -185,7 +181,13 @@ button {
   margin-bottom: 12px;
 }
 
-.card-content table {
-  margin: -20px 0px;
+.icon-container {
+  width: 40px;
+  height: 40px;
+  padding-right: 26px;
+}
+
+.selected-team td{
+  padding: 0 8px 0 0;
 }
 </style>

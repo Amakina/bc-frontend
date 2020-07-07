@@ -80,6 +80,10 @@ export default {
   padding: 53px 63px;
 }
 
+h1 {
+  margin-bottom: 38px;
+}
+
 .weather-card {
   width: 560px;
   height: 260px;
@@ -113,6 +117,6 @@ input {
 }
 
 .card-content table {
-  margin: -10px 0px;
+  margin: 9px 0px;
 }
 </style>

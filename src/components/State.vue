@@ -6,7 +6,7 @@
         <button :class="{ 'button-success': ship && team && weather }" @click="flyRocket">Поехали!</button>
       </template>
       <template v-slot:content>
-        <ul>
+        <ul class="current-statuses">
           <li :class="{ 'status-ok': ship }">Ракета выбрана</li>
           <li :class="{ 'status-ok': team }">Команда собрана</li>
           <li :class="{ 'status-ok': weather }">Погода - ок</li>
@@ -16,55 +16,59 @@
     <card-info class="weather" :hideFooter="true">
       <template v-slot:header><h2>Погодные условия</h2></template>
       <template v-slot:content>
-        <table>
-          <tr>
-            <th>Локация</th>
-            <td v-if="weather">{{weather.location}}</td>
-          </tr>
-          <tr>
-            <th>Температура</th>
-            <td v-if="weather">{{weather.temperature}}</td>
-          </tr>
-          <tr>
-            <th>Влажность</th>
-            <td v-if="weather">{{weather.humidity}}</td>
-          </tr>
-          <tr>
-            <th>Ветер</th>
-            <td v-if="weather">{{weather.wind}}</td>
-          </tr>
-        </table>
+        <div class="table-padding">
+          <table>
+            <tr>
+              <th>Локация</th>
+              <td v-if="weather">{{weather.location}}</td>
+            </tr>
+            <tr>
+              <th>Температура</th>
+              <td v-if="weather">{{weather.temperature}}</td>
+            </tr>
+            <tr>
+              <th>Влажность</th>
+              <td v-if="weather">{{weather.humidity}}</td>
+            </tr>
+            <tr>
+              <th>Ветер</th>
+              <td v-if="weather">{{weather.wind}}</td>
+            </tr>
+          </table>
+        </div>
       </template>
     </card-info>
     <card-info class="team" :hideFooter="true">
         <template v-slot:header><h2>Экипаж</h2></template>
         <template v-slot:content>
-          <table>
-            <tr>
-              <th style="color: #FF7D84;">Капитан</th>
-              <td v-if="team">
-                <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
-              </td>
-            </tr>
-            <tr>
-              <th style="color: #E69F54;">Борт инженер</th>
-              <td v-if="team">
-                <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
-              </td>
-            </tr>
-            <tr>
-              <th style="color: #64D03F;">Врач</th>
-              <td v-if="team">
-                <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
-              </td>
-            </tr>
-            <tr>
-              <th style="color: #5A95F2;">Космодесантник</th>
-              <td v-if="team">
-                <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
-              </td>
-            </tr>
-          </table>
+          <div class="table-padding">
+            <table>
+              <tr>
+                <th style="color: #FF7D84;">Капитан</th>
+                <td v-if="team">
+                  <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
+                </td>
+              </tr>
+              <tr>
+                <th style="color: #E69F54;">Борт инженер</th>
+                <td v-if="team">
+                  <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
+                </td>
+              </tr>
+              <tr>
+                <th style="color: #64D03F;">Врач</th>
+                <td v-if="team">
+                  <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
+                </td>
+              </tr>
+              <tr>
+                <th style="color: #5A95F2;">Космодесантник</th>
+                <td v-if="team">
+                  <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
+                </td>
+              </tr>
+            </table>
+          </div>
         </template>
       </card-info>
     <img class="astronomy" src="../assets/images/background/astronomy.svg" />
@@ -190,5 +194,10 @@ img {
 
 .fly-rocket {
   bottom: 2000px;
+}
+
+.table-padding {
+  width: 100%;
+  padding-top: 14px;
 }
 </style>
