@@ -46,25 +46,33 @@
               <tr>
                 <th class="color-captain">Капитан</th>
                 <td v-if="team">
-                  <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
+                  <ul>
+                    <li v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</li>
+                  </ul>
                 </td>
               </tr>
               <tr>
                 <th class="color-engineer">Борт инженер</th>
                 <td v-if="team">
-                  <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
+                  <ul>
+                    <li v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</li>
+                  </ul>
                 </td>
               </tr>
               <tr>
                 <th class="color-doctor">Врач</th>
                 <td v-if="team">
-                  <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
+                  <ul>
+                    <li v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</li>
+                  </ul>
                 </td>
               </tr>
               <tr>
                 <th class="color-paratrooper">Космодесантник</th>
                 <td v-if="team">
-                  <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
+                  <ul>
+                    <li v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</li>
+                  </ul>
                 </td>
               </tr>
             </table>
@@ -151,7 +159,7 @@ ul {
   margin: 0;
 }
 
-ul li::before {
+.status ul li::before {
   content: '';
   display: inline-block;
   width: .75em;
@@ -161,7 +169,7 @@ ul li::before {
   border-radius: 50%;
 }
 
-li.status-ok::before  {
+.status li.status-ok::before  {
   background: #73E24D;
 }
 
@@ -183,17 +191,17 @@ img {
 .rocket {
   right: 150px;
   bottom: 80px;
-  transform: rotate(-45deg);
-  transition: bottom 4s ease-in-out;
+  transform:rotate(-45deg) translateY(0);
+  transition: transform 4s ease-in-out;
+}
+
+.fly-rocket {
+  transform:rotate(0deg) translateY(-2000px);
 }
 
 .button-success {
   background: #73E24D;
   color: #FFFFFF;
-}
-
-.fly-rocket {
-  bottom: 2000px;
 }
 
 .table-padding {
