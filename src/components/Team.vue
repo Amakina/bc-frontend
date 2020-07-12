@@ -10,7 +10,7 @@
         <template v-slot:content>
           <table>
             <tr v-for="(option, index) in teamOptions" :key="option.role + index">
-              <th :style="`color: ${option.color};`">{{option.role}}</th>
+              <th :class="option.class">{{option.role}}</th>
               <td v-for="member in selectedTeam[option.container]" :key="option.role + member.Id + member.Name">
                 <img :src="require(`../assets/images/team/${member.Icon}`)" width="20" height="20">
               </td>
@@ -23,7 +23,7 @@
           <h2>Корабль</h2>
         </template>
         <template v-slot:content>
-          <img :src="require(`../assets/images/rockets/${ship.icon}`)" width="89" height="89" style="margin-right: 25px;">
+          <img :src="require(`../assets/images/rockets/${ship.icon}`)" width="89" height="89">
           <table>
             <tr>
               <th>Имя</th>
@@ -43,12 +43,12 @@
     </div>
     <div class="current-selection options">
       <card-info v-for="option in teamOptions" :key="option.role" :hideFooter="true">
-        <template v-slot:header><h2 :style="`color:${option.color};`">{{option.role}}</h2></template>
+        <template v-slot:header><h2 :class="option.class">{{option.role}}</h2></template>
         <template v-slot:content>
           <div class="entries-container">
             <div class="entries" v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
               <div class="icon-container"><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></div>
-              <div style="flex: 1;">{{member.Name}}</div>
+              <div class="teammate-name">{{member.Name}}</div>
               <div>
                 <input type="checkbox" v-model="selectedTeam[option.container]" :value="member">
               </div>
@@ -79,25 +79,25 @@ export default {
           role: 'Капитан',
           container: 'captains',
           members: [],
-          color: '#FF7D84',
+          class: 'color-captain',
         },
         {
           role: 'Борт инженер',
           container: 'engineers',
           members: [],
-          color: '#E69F54',
+          class: 'color-engineer',
         },
         {
           role: 'Врач',
           container: 'doctors',
           members: [],
-          color: '#64D03F',
+          class: 'color-doctor',
         },
         {
           role: 'Космодесантник',
           container: 'paratroopers',
           members: [],
-          color: '#5A95F2',
+          class: 'color-paratrooper',
         },
       ],
       selectedTeam: {
@@ -189,5 +189,13 @@ button {
 
 .selected-team td{
   padding: 0 8px 0 0;
+}
+
+.teammate-name {
+  flex: 1;
+}
+
+img {
+  margin-right: 25px;
 }
 </style>

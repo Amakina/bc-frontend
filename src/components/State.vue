@@ -44,25 +44,25 @@
           <div class="table-padding">
             <table>
               <tr>
-                <th style="color: #FF7D84;">Капитан</th>
+                <th class="color-captain">Капитан</th>
                 <td v-if="team">
                   <tr v-for="man in team.captains" :key="`captain-${man.Id}`">{{man.Name}}</tr>
                 </td>
               </tr>
               <tr>
-                <th style="color: #E69F54;">Борт инженер</th>
+                <th class="color-engineer">Борт инженер</th>
                 <td v-if="team">
                   <tr v-for="man in team.engineers" :key="`engineer-${man.Id}`">{{man.Name}}</tr>
                 </td>
               </tr>
               <tr>
-                <th style="color: #64D03F;">Врач</th>
+                <th class="color-doctor">Врач</th>
                 <td v-if="team">
                   <tr v-for="man in team.doctors" :key="`doctor-${man.Id}`">{{man.Name}}</tr>
                 </td>
               </tr>
               <tr>
-                <th style="color: #5A95F2;">Космодесантник</th>
+                <th class="color-paratrooper">Космодесантник</th>
                 <td v-if="team">
                   <tr v-for="man in team.paratroopers" :key="`paratrooper-${man.Id}`">{{man.Name}}</tr>
                 </td>

@@ -71,6 +71,22 @@ th {
   line-height: 37px;
 }
 
+.color-captain {
+  color: #FF7D84;
+}
+
+.color-engineer {
+  color: #E69F54;
+}
+
+.color-doctor {
+  color: #64D03F;
+}
+
+.color-paratrooper {
+  color: #5A95F2;
+}
+
 @media (max-height: 1095px) {
   #app {
     height: 900px;

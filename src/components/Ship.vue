@@ -7,7 +7,7 @@
         <button @click="onBuildClick">Собрать ракету</button>
       </template>
       <template v-slot:content>
-        <img :src="require(`../assets/images/rockets/${selectedShip.icon}`)" width="89" height="89" style="margin-right: 25px;">
+        <img :src="require(`../assets/images/rockets/${selectedShip.icon}`)" width="89" height="89">
         <table>
          <tr>
            <th>Имя</th>
@@ -31,7 +31,7 @@
         :hasBorder="true" 
         class="select-ship">
         <template v-slot:content>
-          <img :src="require(`../assets/images/rockets/${ship.icon}`)" width="89" height="89" style="margin-right: 25px;">
+          <img :src="require(`../assets/images/rockets/${ship.icon}`)" width="89" height="89">
           <table>
           <tr>
             <th>Имя</th>
@@ -166,5 +166,9 @@ label input:checked ~ .custom-check {
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 50%;
+}
+
+img {
+  margin-right: 25px;
 }
 </style>
