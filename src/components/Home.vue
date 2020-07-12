@@ -7,24 +7,35 @@
       :weather="weather"
       @shipSelect="onShipSelect"
       @teamSelect="onTeamSelect"
-      @weatherChecked="onWeatherChecked"/>
+      @weatherChecked="onWeatherChecked"
+      @showNotification="onShowNotification"/>
+    <Notification
+      :isOpen="isShowNotification"
+      :content="notificationContent"
+      :header="notificationHeader"
+      @hideNotification="onHideNotification"/>
   </div>
 </template>
 <script>
 import Menu from './Menu.vue'
 import Ships from '../assets/ships.json'
 import Rocket from '../Rocket'
+import Notification from './Notification.vue'
 
 export default {
   name: 'home',
   components: {
-    Menu
+    Menu,
+    Notification
   },
   data() {
     return {
       ship: null,
       team: null,
       weather: null,
+      notificationHeader: '',
+      notificationContent: '',
+      isShowNotification: false,
     }
   },
   created() {
@@ -40,7 +51,15 @@ export default {
     },
     onWeatherChecked(weather) {
       this.weather = { ...weather }
-      
+    },
+    onShowNotification(notification) {
+      const { header, content } = notification
+      this.notificationContent = content
+      this.notificationHeader = header
+      this.isShowNotification = true
+    },
+    onHideNotification() {
+      this.isShowNotification = false
     }
   }
 }

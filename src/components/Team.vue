@@ -45,15 +45,15 @@
       <card-info v-for="option in teamOptions" :key="option.role" :hideFooter="true">
         <template v-slot:header><h2 :class="option.class">{{option.role}}</h2></template>
         <template v-slot:content>
-          <div class="entries-container">
-            <div class="entries" v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
+          <ul class="entries-container">
+            <li class="entries" v-for="member in option.members" :key="`${member.Name}-${member.Role}-${member.Id}`">
               <div class="icon-container"><img :src="require(`../assets/images/team/${member.Icon}`)" width="40" height="40"></div>
               <div class="teammate-name">{{member.Name}}</div>
               <div>
                 <input type="checkbox" v-model="selectedTeam[option.container]" :value="member">
               </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </template>
       </card-info>
     </div>
@@ -126,8 +126,18 @@ export default {
         this.selectedTeam.captains.length + this.selectedTeam.engineers.length +
         this.selectedTeam.doctors.length + this.selectedTeam.paratroopers.length 
         !== +this.ship.teamNumber
-      ) return
+      ) {
+        this.$emit('showNotification', {
+          header: 'Ошибка!',
+          content: 'Количество выбранных членов экипажа должно быть равно количеству доступных мест на ракете.'
+        })
+        return
+      }
       this.$emit('teamSelect', this.selectedTeam)
+      this.$emit('showNotification', {
+        header: 'Успех!',
+        content: 'Команда собрана успешно.'
+      })
     }
   }
 }
@@ -197,5 +207,10 @@ button {
 
 img {
   margin-right: 25px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
 }
 </style>

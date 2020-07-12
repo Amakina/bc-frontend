@@ -92,6 +92,10 @@ export default {
         this.selectedShip.icon
       )
       this.$emit('shipSelect', rocket)
+      this.$emit('showNotification', {
+        header: 'Успех!',
+        content: 'Ракета собрана успешно.'
+      })
     },
   }
 }

@@ -52,7 +52,13 @@ export default {
       if (!this.weather.location) return
 
       const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${this.weather.location}&units=metric&appid=f257fffa28d411d38fcde458cf05630d`)
-      if (!response.ok) return
+      if (!response.ok) {
+        this.$emit('showNotification', {
+          header: 'Ошибка!',
+          content: 'Не удалось проверить погоду в выбранной локации. Убедитесь, что локация указана верно.'
+        })
+        return
+      }
 
       const json = await response.json()
       this.weather.temperature = `${json.main.temp} °C`
@@ -60,6 +66,10 @@ export default {
       this.weather.wind = `${json.wind.speed} м/c ${this.getWindDirection(json.wind.deg)}`
 
       this.$emit('weatherChecked', this.weather)
+      this.$emit('showNotification', {
+        header: 'Успех!',
+        content: 'Погода проверена.'
+      })
       
     },
     getWindDirection(deg) {
