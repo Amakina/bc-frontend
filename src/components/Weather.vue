@@ -1,5 +1,5 @@
 <template>
-  <div class="weather">
+  <main class="weather">
     <h1>Проверка погодных условий</h1>
     <card-info class="weather-card" :hideFooter="true">
       <template v-slot:header>
@@ -27,7 +27,7 @@
         </table>
       </template>
     </card-info>
-  </div>
+  </main>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'

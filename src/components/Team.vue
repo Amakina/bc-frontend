@@ -1,5 +1,5 @@
 <template>
-  <div class="team">
+  <main class="team">
     <h1>Сбор команды</h1>
     <div class="current-selection">
       <card-info :hideFooter="true" class="selected-team">
@@ -57,7 +57,7 @@
         </template>
       </card-info>
     </div>
-  </div>
+  </main>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'

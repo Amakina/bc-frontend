@@ -1,5 +1,5 @@
 <template>
-  <div class="menu">
+  <nav class="menu">
     <ul>
       <li>
         <router-link to="/"><img src="../assets/images/menu/earth.png"></router-link>
@@ -14,7 +14,7 @@
         <router-link to="/weather"><img src="../assets/images/menu/thermometer.png"></router-link>
       </li>
     </ul>
-  </div>
+  </nav>
 </template>
 <style scoped>
 .menu {

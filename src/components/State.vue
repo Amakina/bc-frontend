@@ -1,5 +1,5 @@
 <template>
-  <div class="state">
+  <main class="state">
     <card-info class="status" :hideFooter="true">
       <template v-slot:header>
         <h3>Статус</h3>
@@ -73,7 +73,7 @@
       </card-info>
     <img class="astronomy" src="../assets/images/background/astronomy.svg" />
     <img v-if="ship" :class="{ 'rocket': true, 'fly-rocket': fly }" :src="require(`../assets/images/rockets/${ship.icon}`)" width="328" height="328"/>
-  </div>
+  </main>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'

@@ -1,5 +1,5 @@
 <template>
-  <div class="ship">
+  <main class="ship">
     <h1>Выбор корабля</h1>
     <card-info class="selected-ship-card" :hideFooter="true">
       <template v-slot:header>
@@ -56,7 +56,7 @@
         </template>
       </card-info>
     </div>
-  </div>
+  </main>
 </template>
 <script>
 import CardInfo from './Card-Info.vue'
